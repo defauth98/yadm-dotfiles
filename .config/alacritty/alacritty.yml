@@ -1,0 +1,107 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 175
+    lines: 40 
+  padding:
+    x: 8 
+    y: 8
+  dynamic_title: true
+  # Window title
+  title: Alacritty
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+  # GTK theme variant (Linux/BSD onlyu)
+scrolling:
+  history: 5000
+
+background_opacity: 0.8
+
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: "JetBrains Mono"
+    # family: "Nerd Font Cascadia Code"
+    # family: "Meslo LG L"
+    # family: "Inconsolata"
+    style: Regular
+
+  # The bold font face
+  bold:
+    # family: "Hack"
+    family: "JetBrains Mono"
+    # family: "Meslo LG L"
+    # family: "Inconsolata"
+    # Style can be specified to pick a specific face.
+    style: Semibold
+
+  # The italic font face
+  italic:
+    # family: "Inconsolata"
+    # family: "Meslo LG L"
+    family: "JetBrains Mono"
+    # family: "Hack"
+    # Style can be specified to pick a specific face.
+    style: Italic
+  # Point size
+  size: 12.0
+cursor:
+  blinking: Always
+  blink_interval: 500
+
+custom_cursor_colors: true
+hide_cursor_when_typing: true
+colors:
+  # Default colors
+  primary:
+    #background: "0x101421"
+    background: "0x000000"
+    foreground: "0xfffbf6"
+
+  # Normal colors
+  normal:
+    black: "0x2e2e2e"
+    red: "0xeb4129"
+    green: "0xabe047"
+    yellow: "0xf6c744"
+    blue: "0x47a0f3"
+    magenta: "0x7b5cb0"
+    cyan: "0x64dbed"
+    white: "0xe5e9f0"
+
+  # Bright colors
+  bright:
+    black: "0x565656"
+    red: "0xec5357"
+    green: "0xc0e17d"
+    yellow: "0xf9da6a"
+    blue: "0x49a4f8"
+    magenta: "0xa47de9"
+    cyan: "0x99faf2"
+    white: "0xffffff"
+
+key_bindings:
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\f" }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
