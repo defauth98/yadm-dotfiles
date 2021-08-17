@@ -1,0 +1,199 @@
+
+export ZSH="/home/defauth/.oh-my-zsh"
+
+# Set cursor 
+echo -en "\e[=2c"
+
+#set -o vi
+EDITOR="nvim"
+
+# My functions
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;      
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+function ppgrep() {
+    if [[ $1 == "" ]]; then
+        PERCOL=percol
+    else
+        PERCOL="percol --query $1"
+    fi
+    ps aux | eval $PERCOL | awk '{ print $2 }'
+}
+
+function ppkill() {
+    if [[ $1 =~ "^-" ]]; then
+        QUERY=""            # options only
+    else
+        QUERY=$1            # with a query
+        [[ $# > 0 ]] && shift
+    fi
+    ppgrep $QUERY | xargs kill $*
+}
+
+ZSH_THEME="spaceship"
+# ZSH_THEME="cypher"
+# ZSH_THEME="robbyrussell"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+#Spaceship config
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  line_sep      # Line breakp
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+SPACESHIP_USER_SHOW=always
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_CHAR_SYMBOL="🚀"
+SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+
+# Programs alias
+alias proffydeploy="/home/defauth/code/scripts/proffy.sh"
+alias upp="/home/defauth/code/scripts/update.sh"
+alias getReadme="/home/defauth/code/scripts/get-readme.sh"
+alias top="bashtop"
+alias att='yay -Syu --noconfirm'
+alias tmux="tmux -2"
+alias tmux-shortcuts="bat /home/defauth/code/scripts/tmux-shortcuts.sh"
+
+# Config alias
+alias termconf="vim ~/.config/alacritty/alacritty.yml"
+alias vimconf="vim .config/nvim/init.vim"
+alias zshconf="vim .zshrc"
+
+# LS to Exa
+alias ls='exa -l --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -la --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+
+# Colorize grep output (good for log files)��,��,
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# git
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -am'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias status='git status'
+alias tag='git tag'
+alias newtag='git tag -a'
+alias amend="git commit --amend"
+alias diff='git diff --color'
+# git g
+alias g="git"
+
+#alias vim for nvim
+alias v="nvim"
+alias vim="nvim"
+
+# yarn alias
+alias aa="clear && yarn && yarn start"
+alias y="yarn"
+alias tt="yarn test"
+alias cc="yarn run cypress:open"
+alias exs="cd code/trybe-exercises/"
+
+# Projetos atuais
+# My alias
+alias dstop="sudo systemctl stop docker"
+alias dstart="sudo systemctl start docker"
+alias repo='gh repo view --web'
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-bin-gem-node
+
+### End of Zinit's installer chunk
+zplugin light zdharma/fast-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-history-substring-search
+zplugin light zsh-users/zsh-completions
+zplugin light buonomo/yarn-completion
+
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+PATH="/home/defauth/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/defauth/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/defauth/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/defauth/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/defauth/perl5"; export PERL_MM_OPT;
+fpath=($fpath "/home/defauth/.zfunctions")
+
+# . $HOME/.asdf/asdf.sh
+
+export ANDROID_HOME=/home/defauth/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="$(yarn global bin):$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias config='/usr/bin/git --git-dir=/home/defauth/.cfg/ --work-tree=/home/defauth'
