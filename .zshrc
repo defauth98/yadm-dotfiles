@@ -196,4 +196,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$(yarn global bin):$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias config='/usr/bin/git --git-dir=/home/defauth/.cfg/ --work-tree=/home/defauth'
+alias config='yadm'
