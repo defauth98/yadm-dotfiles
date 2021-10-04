@@ -1,4 +1,3 @@
-
 export ZSH="/home/defauth/.oh-my-zsh"
 
 # Set cursor 
@@ -80,6 +79,10 @@ SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 
 # Programs alias
+alias ls_node_modules="find . -name "node_modules" -type d -prune | xargs du -chs"
+alias rm_node_modules="find . -name "node_modules" -type d -prune | xargs rm -rf"
+alias short=" /home/defauth/code/scripts/shortcuts.sh"
+alias pr="gh pr view -w"
 alias proffydeploy="/home/defauth/code/scripts/proffy.sh"
 alias upp="/home/defauth/code/scripts/update.sh"
 alias getReadme="/home/defauth/code/scripts/get-readme.sh"
@@ -94,12 +97,12 @@ alias vimconf="vim .config/nvim/init.vim"
 alias zshconf="vim .zshrc"
 
 # LS to Exa
-alias ls='exa -l --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -la --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='exa -l --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first' 
+alias ll='exa -la --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first'
 
-# Colorize grep output (good for log files)��,��,
+# Coloriza GREP
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -141,11 +144,13 @@ alias tt="yarn test"
 alias cc="yarn run cypress:open"
 alias exs="cd code/trybe-exercises/"
 
-# Projetos atuais
-# My alias
+# Start alias 
 alias dstop="sudo systemctl stop docker"
 alias dstart="sudo systemctl start docker"
 alias repo='gh repo view --web'
+alias pr="gh pr view -w"
+alias config='yadm'
+alias p='python3'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -196,4 +201,11 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$(yarn global bin):$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias config='yadm'
+
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
