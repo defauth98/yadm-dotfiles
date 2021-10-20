@@ -44,6 +44,7 @@ sudo apt install \
    docker \
    fzf \
    fonts-firacode \
+   mysql-server \
    gh -y
 
 # Install NVM
@@ -85,5 +86,8 @@ fi
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 tmux source ~/.tmux.conf
+
+echo "Termine de configurar o mysql"
+echo "--> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysql'; flush privileges;"
 
 ./fonts.sh
