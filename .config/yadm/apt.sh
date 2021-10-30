@@ -69,4 +69,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 tmux source ~/.tmux.conf
 
+# change origin yadm to ssh
+yadm remote remove origin
+yadm remote add origin git@github.com:defauth98/yadm-dotfiles.git
+
+# Install settings sync
+ext install Shan.code-settings-sync
+
 ./zsh.sh
