@@ -16,15 +16,30 @@ scrolling:
   history: 5000
 font:
   normal:
-    family: VictorMono Nerd Font
-    style: SemiBold
+    # family: "Fira Code"
+    # family: VictorMono Nerd Font
+    # family: MesloLGLDZ Nerd Font
+    family: mononoki Nerd Font
+    # family: SpaceMono Nerd Font
+    # family: JetbrainsMono
+    # style: Bold
   bold:
-    family: VictorMono Nerd Font
-    style: Bold
+    # family: "Fira Code"
+    # family: VictorMono Nerd Font
+    # family: MesloLGLDZ Nerd Font
+    family: mononoki Nerd Font
+    # family: SpaceMono Nerd Font
+    # family: JetbrainsMono
+    # style: Bold
   italic:
-    family: VictorMono Nerd Font
-    style: Italic
-  size: 13
+    # family: "Fira Code"
+    # family: VictorMono Nerd Font
+    # family: MesloLGLDZ Nerd Font
+    family: mononoki Nerd Font
+    # family: SpaceMono Nerd Font
+    # family: JetbrainsMono
+    # style: Italic
+  size: 12
 cursor:
   style:
     shape: Beam
