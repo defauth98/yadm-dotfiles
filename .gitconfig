@@ -4,7 +4,7 @@
 	email = neto.daniribeiro@gmail.com
 [core]
   editor = nvim
-  pager = less 
+  pager = cat 
 [alias]
   ci = commit
   co = checkout
@@ -29,3 +29,5 @@
 	defaultBranch = main
 [pager]
 	branch = true
+[pull]
+	rebase = false
