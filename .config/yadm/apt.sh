@@ -44,6 +44,8 @@ sudo apt install \
    fzf \
    fonts-firacode \
    mysql-server \
+   exa \
+   snapd \
    gh -y
 
 gh auth login
@@ -77,4 +79,4 @@ yadm remote add origin git@github.com:defauth98/yadm-dotfiles.git
 # Install settings sync
 ext install Shan.code-settings-sync
 
-./zsh.sh
+./fonts.sh
