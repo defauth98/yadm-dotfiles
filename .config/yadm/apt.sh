@@ -13,7 +13,7 @@ sudo add-apt-repository \
 $(lsb_release -cs) \
 stable"
 
-apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 # install tools
 sudo apt install \
