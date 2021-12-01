@@ -1,60 +1,40 @@
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="/home/defauth/.oh-my-zsh"
 
-echo -en "\e[=2c"
-EDITOR="nvim"
+zstyle ':omz:update' mode auto      # update automatically without asking
 
-ZSH_THEME="spaceship"
-plugins=(git asdf)
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
-#Spaceship config
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  line_sep      # Line breakp
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-
-# VMS
-alias vms="/home/defauth/scripts/hacking/vms.sh"
+alias vms="/home/defauth/code/scripts/hacking/vms.sh"
 
 # Trybe Projects git alias
-alias p-trybe="cd  /home/defauth/code/trybe/projects/delivery-app"
+alias p-trybe="cd /home/defauth/code/trybe/projects/delivery-app"
 alias main="git checkout main-group-9"
 
 # utils
 alias wm="wmctrl"
-alias getReadme="/home/defauth/scripts/getReadme.md"
 
 # Workspaces work
-alias fanstok="/home/defauth/scripts/fanstok.sh"
-alias phono-api="/home/defauth/scripts/phono-api.sh"
-alias phono-app="/home/defauth/scripts/phono-app.sh"
+alias fanstok="/home/defauth/code/workspaces-scripts/gmalato/fanstok.sh"
+alias phono-api="/home/defauth/code/workspaces-scripts/gmalato/phono-api.sh"
+alias phono-app="/home/defauth/code/workspaces-scripts/gmalato/phono-app.sh"
+alias neocryptal="/home/defauth/code/workspaces-scripts/gmalato/cryptal.sh"
 
 # Workspaces trybe
-alias blog-api="/home/defauth/scripts/trybe/blog-api.sh"
-alias cookmaster="/home/defauth/scripts/trybe/cookmaster.sh"
-alias store-manager="/home/defauth/scripts/trybe/store-manager.sh"
-alias talker-manager="/home/defauth/scripts/trybe/talker-manager.sh"
-alias web-chat="/home/defauth/scripts/trybe/webchat.sh"
-alias delivery-backend="/home/defauth/scripts/trybe/delivery-backend.sh"
-alias delivery-frontend="/home/defauth/scripts/trybe/delivery-frontend.sh"
-alias ciencias="/home/defauth/scripts/ciencia-computacao.sh"
+alias blog-api="/home/defauth/code/workspaces-scripts/trybe/blog-api.sh"
+alias cookmaster="/home/defauth/code/workspaces-scripts/trybe/cookmaster.sh"
+alias store-manager="/home/defauth/code/workspaces-scripts/trybe/store-manager.sh"
+alias talker-manager="/home/defauth/code/workspaces-scripts/trybe/talker-manager.sh"
+alias web-chat="/home/defauth/code/workspaces-scripts/trybe/webchat.sh"
+alias delivery="/home/defauth/code/workspaces-scripts/trybe/delivery.sh"
+alias ciencias="/home/defauth/code/workspaces-scripts/trybe/ciencia-computacao.sh"
 
 # fronend projects
-alias online-store="/home/defauth/scripts/trybe/online-store.sh"
-alias proffy="/home/defauth/scripts/github/proffy.sh"
+alias online-store="/home/defauth/code/workspaces-scripts/trybe/online-store.sh"
+alias proffy="/home/defauth/code/workspaces-scripts/github/proffy.sh"
 alias portfolio="$HOME/scripts/daniel-portifolio.sh"
-alias defauth98="/home/defauth/scripts/github-io.sh"
+alias defauth98="/home/defauth/code/workspaces-scripts/github-io.sh"
 
 # Programs alias
 alias ls_node_modules="find . -name "node_modules" -type d -prune | xargs du -chs"
@@ -66,7 +46,7 @@ alias proffydeploy="/home/defauth/code/scripts/proffy.sh"
 alias upp="/home/defauth/code/scripts/update.sh"
 alias top="bashtop"
 
-# Config alias
+#config files alias
 alias alaconf="code ~/.config/alacritty/alacritty.yml"
 alias vimconf="code .config/nvim/init.vim"
 alias zshconf="code .zshrc"
@@ -75,6 +55,28 @@ alias zshconf="code .zshrc"
 alias ls='exa -l --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first' 
 alias ll='exa -la --color=always --group-directories-first'
+
+#alias vim for nvim
+alias v="nvim"
+alias vim="nvim"
+
+# yarn alias
+alias aa="clear; npm start"
+alias tt="npm test"
+alias trybe="cd $HOME/code/trybe/projects"
+
+alias docker-stop="sudo systemctl stop docker;"
+alias docker-start="sudo systemctl start docker;"
+alias testdb-start="sudo docker start test-db;"
+alias mysql-start="sudo systemctl start mysql; "
+alias mongo-start="sudo systemctl start mongod;"
+
+# Github CLI alias
+alias repo='gh repo view --web'
+alias pr="gh pr view -w"
+
+# Dotfiles alias
+alias config='yadm'
 
 # Coloriza GREP
 alias grep='grep --color=auto'
@@ -88,48 +90,6 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-# git
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -am'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias status='git status'
-alias tag='git tag'
-alias newtag='git tag -a'
-alias amend="git commit --amend"
-alias diff='git diff --color'
-alias glg="git lg -n 8"
-# git g
-alias g="git"
-
-#alias vim for nvim
-alias v="nvim"
-alias vim="nvim"
-
-# yarn alias
-alias aa="clear; npm start"
-alias n="npm"
-alias tt="npm test"
-alias trybe="cd $HOME/code/trybe/projects"
-
-# Start alias 
-alias docker-stop="sudo systemctl stop docker; sudo systemctl status docker"
-alias docker-start="sudo systemctl start docker; sudo systemctl status docker"
-alias testdb-start="sudo docker start test-db; sudo docker ps -a"
-alias mysql-start="sudo systemctl start mysql; sudo systemctl status mysql"
-alias mongo-start="sudo systemctl start mongod; ; sudo systemctl status mongod"
-
-# Github CLI alias
-alias repo='gh repo view --web'
-alias pr="gh pr view -w"
-
-# Dotfiles alias
-alias config='yadm'
 
 # My functions
 ex ()
@@ -177,44 +137,70 @@ function ppkill() {
 }
 
 ### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
+# Raw Syntax
+zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
+zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
+
+## Oh My Zsh Setting
+zinit light spaceship-prompt/spaceship-prompt
+ZSH_THEME="spaceship"
+
+## Zinit Setting
+# Must Load OMZ Git library
+zinit snippet OMZL::git.zsh
+
+# Load Git plugin from OMZ
+zinit snippet OMZP::git
+zinit cdclear -q # <- forget completions provided up to this moment
+
+setopt promptsubst
+
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  line_sep      # Line breakp
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+
+
+# Load Prompt
+# zinit snippet OMZT::robbyrussell
 ### End of Zinit's installer chunk
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-history-substring-search
-zplugin light zsh-users/zsh-completions
-zplugin light buonomo/yarn-completion
 
-PATH="/home/defauth/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/defauth/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/defauth/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/defauth/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/defauth/perl5"; export PERL_MM_OPT;
-fpath=($fpath "/home/defauth/.zfunctions")
-
-export PATH=~/Library/Android/sdk/tools:$PATH
-export PATH=~/Library/Android/sdk/platform-tools:$PATH
-
-# export PATH="$(yarn global bin):$PATH"
-. $HOME/.asdf/completions/asdf.bash
-. /home/defauth/.asdf/asdf.sh
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
