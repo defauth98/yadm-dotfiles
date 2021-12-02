@@ -1,5 +1,6 @@
 env:
   TERM: xterm-256color
+background_opacity: 0.85
 window:
   dimensions:
     columns: 175
@@ -16,26 +17,33 @@ scrolling:
   history: 5000
 font:
   normal:
+    family: Ubuntu Mono Nerd Font
     # family: "Fira Code"
     # family: VictorMono Nerd Font
     # family: MesloLGLDZ Nerd Font
-    family: mononoki Nerd Font
+    # family: Meslo LG M  Nerd Font
+    # family: Terminess Nerd Font
+    #family: mononoki Nerd Font
     # family: SpaceMono Nerd Font
     # family: JetbrainsMono
-    # style: Bold
+    style: Bold
   bold:
+    family: Ubuntu Mono Nerd Font
     # family: "Fira Code"
     # family: VictorMono Nerd Font
     # family: MesloLGLDZ Nerd Font
-    family: mononoki Nerd Font
+    # family: Meslo LG M  Nerd Font
+    # family: mononoki Nerd Font
     # family: SpaceMono Nerd Font
     # family: JetbrainsMono
     # style: Bold
   italic:
+    family: Ubuntu Mono Nerd Font
     # family: "Fira Code"
     # family: VictorMono Nerd Font
+    # family: Meslo LG M  Nerd Font
     # family: MesloLGLDZ Nerd Font
-    family: mononoki Nerd Font
+    #family: mononoki Nerd Font
     # family: SpaceMono Nerd Font
     # family: JetbrainsMono
     # style: Italic
@@ -50,30 +58,30 @@ hide_cursor_when_typing: true
 colors:
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: "#282a36"
+    foreground: "#f8f8f2"
 
   # Normal colors
   normal:
-    black: '#000000'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#caa9fa'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#bfbfbf'
+    black: "#000000"
+    red: "#ff5555"
+    green: "#50fa7b"
+    yellow: "#f1fa8c"
+    blue: "#caa9fa"
+    magenta: "#ff79c6"
+    cyan: "#8be9fd"
+    white: "#bfbfbf"
 
   # Bright colors
   bright:
-    black: '#575b70'
-    red: '#ff6e67'
-    green: '#5af78e'
-    yellow: '#f4f99d'
-    blue: '#caa9fa'
-    magenta: '#ff92d0'
-    cyan: '#9aedfe'
-    white: '#e6e6e6'
+    black: "#575b70"
+    red: "#ff6e67"
+    green: "#5af78e"
+    yellow: "#f4f99d"
+    blue: "#caa9fa"
+    magenta: "#ff92d0"
+    cyan: "#9aedfe"
+    white: "#e6e6e6"
 key_bindings:
   - key: V
     mods: Control|Shift
