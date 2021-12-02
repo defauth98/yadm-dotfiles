@@ -2,13 +2,14 @@ export ZSH="/home/defauth/.oh-my-zsh"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
 
-plugins=(git)
+plugins=(git python virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
 alias vms="/home/defauth/code/scripts/hacking/vms.sh"
 
 # Trybe Projects git alias
+alias python-dir="cd /home/defauth/code/trybe/exercises/ciencia_da_computacao"
 alias p-trybe="cd /home/defauth/code/trybe/projects/delivery-app"
 alias main="git checkout main-group-9"
 
@@ -181,15 +182,17 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
-  line_sep      # Line breakp
+  exec_time     # Execution time
+  line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
-
-SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_CHAR_SYMBOL="❯"
+SPACESHIP_CHAR_SUFFIX=" "
 
 
 # Load Prompt
