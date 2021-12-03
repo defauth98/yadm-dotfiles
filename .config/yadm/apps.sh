@@ -14,3 +14,8 @@ flatpak install flathub com.slack.Slack -y
 
 flatpak install flathub com.github.IsmaelMartinez.teams_for_linux -y
 
+sudo apt install snapd
+
+sudo snap install gtk-common-themes
+
+sudo snap install code --classic

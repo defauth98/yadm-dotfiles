@@ -13,11 +13,23 @@ sudo add-apt-repository \
 $(lsb_release -cs) \
 stable"
 
+echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
+    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+
+wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
+
+echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list
+
+
 sudo apt update && sudo apt upgrade -y
 
 # install tools
 sudo apt install \
    fonts-firacode \
+   google-chrome-stable \
+   beekeeper-studio \
+   keepassxc \
+   gimp \
    curl \
    coreutils \
    net-tools \
@@ -75,8 +87,5 @@ tmux source ~/.tmux.conf
 # change origin yadm to ssh
 yadm remote remove origin
 yadm remote add origin git@github.com:defauth98/yadm-dotfiles.git
-
-# Install settings sync
-ext install Shan.code-settings-sync
 
 ./fonts.sh
