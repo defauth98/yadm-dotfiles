@@ -26,7 +26,9 @@ sudo apt update && sudo apt upgrade -y
 # install tools
 sudo apt install \
    fonts-firacode \
+   ncdu \
    bashtop \
+   wmctrl \
    google-chrome-stable \
    beekeeper-studio \
    keepassxc \
