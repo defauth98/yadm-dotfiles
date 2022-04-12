@@ -27,7 +27,6 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install \
    fonts-firacode \
    ncdu \
-   bashtop \
    wmctrl \
    google-chrome-stable \
    beekeeper-studio \
@@ -59,7 +58,6 @@ sudo apt install \
    fzf \
    fonts-firacode \
    mysql-server \
-   exa \
    snapd \
    gh -y
 
