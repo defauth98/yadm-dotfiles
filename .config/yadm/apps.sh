@@ -17,3 +17,5 @@ flatpak install flathub com.github.IsmaelMartinez.teams_for_linux -y
 sudo apt install snapd
 
 sudo snap install gtk-common-themes
+
+snap install mysql-workbench-community
