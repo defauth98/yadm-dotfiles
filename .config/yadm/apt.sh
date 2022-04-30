@@ -13,53 +13,22 @@ sudo add-apt-repository \
 $(lsb_release -cs) \
 stable"
 
+
+# Insomnia repository
 echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
     | sudo tee -a /etc/apt/sources.list.d/insomnia.list
 
 wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
 
-echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list
 
+# beekeeper Repositoru
+echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list
 
 sudo apt update && sudo apt upgrade -y
 
 # install tools
-sudo apt install \
-   fonts-firacode \
-   ncdu \
-   wmctrl \
-   google-chrome-stable \
-   beekeeper-studio \
-   keepassxc \
-   gimp \
-   curl \
-   coreutils \
-   net-tools \
-   apt-transport-https \
-   ca-certificates \
-   software-properties-common \
-   ubuntu-restricted-extras \
-   gnome-tweak-tool \
-   network-manager-openvpn-gnome \
-   libxss1 \
-   libappindicator1 \
-   libindicator7 \
-   vim \
-   nfs-common \
-   nfs-kernel-server \
-   psensor \
-   zsh \
-   tmux \
-   neovim \
-   percol \
-   bat \
-   yadm \
-   docker \
-   fzf \
-   fonts-firacode \
-   mysql-server \
-   snapd \
-   gh -y
+sudo apt install fonts-firacode ncdu wmctrl google-chrome-stable beekeeper-studio keepassxc gimp curl coreutils net-tools apt-transport-https ca-certificates software-properties-common ubuntu-restricted-extras -y
+sudo apt install network-manager-openvpn-gnome libxss1 libappindicator1 libindicator7 vim nfs-common nfs-kernel-server psensor zsh tmux neovim percol bat yadm docker fzf fonts-firacode mysql-server snapd insomnia beekeeper-studio gh -y
 
 gh auth login
 
@@ -89,4 +58,4 @@ tmux source ~/.tmux.conf
 yadm remote remove origin
 yadm remote add origin git@github.com:defauth98/yadm-dotfiles.git
 
-./fonts.sh
+$HOME/.config/yadm/fonts.sh

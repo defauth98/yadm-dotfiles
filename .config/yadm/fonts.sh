@@ -6,4 +6,4 @@ sudo cp ./ttf /usr/share/fonts/ -r
 
 rm -rf ttf web JetBrainsMono-2.001.zip LICENSE
 
-./zsh.sh
+$HOME/.config/yadm/zsh.sh
