@@ -27,8 +27,8 @@ echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/source
 sudo apt update && sudo apt upgrade -y
 
 # install tools
-sudo apt install fonts-firacode ncdu wmctrl google-chrome-stable beekeeper-studio keepassxc gimp curl coreutils net-tools apt-transport-https ca-certificates software-properties-common ubuntu-restricted-extras -y
-sudo apt install network-manager-openvpn-gnome libxss1 libappindicator1 libindicator7 vim nfs-common nfs-kernel-server psensor zsh tmux neovim percol bat yadm docker fzf fonts-firacode mysql-server snapd insomnia beekeeper-studio gh -y
+sudo apt install fonts-firacode ncdu wmctrl google-chrome-stable beekeeper-studio keepassxc gimp curl coreutils net-tools apt-transport-https ca-certificates software-properties-common ubuntu-restricted-extras gnome-tweaks discord -y
+sudo apt install network-manager-openvpn-gnome libxss1 libappindicator1 libindicator7 vim nfs-common nfs-kernel-server psensor zsh tmux neovim percol bat docker fzf fonts-firacode mysql-server snapd insomnia alacritty gh -y
 
 gh auth login
 
