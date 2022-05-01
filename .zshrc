@@ -17,6 +17,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+alias t="tmux new-session -A -s main"
 
 alias vms="/home/defauth/code/workflow/scripts/hacking/vms.sh"
 
