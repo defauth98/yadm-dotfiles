@@ -18,42 +18,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias t="tmux new-session -A -s main"
-
+alias mk-backup="/home/defauth/code/scripts/backup-with-rsync/backup-with-rsync.sh"
 alias vms="/home/defauth/code/workflow/scripts/hacking/vms.sh"
-
-# Trybe Projects git alias
-alias python-dir="cd /home/defauth/code/workflow/trybe/exercises/ciencia_da_computacao"
-alias p-trybe="cd /home/defauth/code/workflow/trybe/projects/delivery-app"
-alias main="git checkout main-group-9"
-
-# utils
-alias wm="wmctrl"
-
-# Workspaces work
-alias fanstok="/home/defauth/code/workflow/workspaces-scripts/gmalato/fanstok.sh"
-alias phono-api="/home/defauth/code/workflow/workspaces-scripts/gmalato/phono-api.sh"
-alias phono-app="/home/defauth/code/workflow/workspaces-scripts/gmalato/phono-app.sh"
-alias neocryptal="/home/defauth/code/workflow/workspaces-scripts/gmalato/cryptal.sh"
-
-# Workspaces trybe
-alias blog-api="/home/defauth/code/workflow/workspaces-scripts/github/blog-api.sh"
-alias cookmaster="/home/defauth/code/workflow/workspaces-scripts/github/cookmaster.sh"
-alias store-manager="/home/defauth/code/workflow/workspaces-scripts/github/store-manager.sh"
-alias talker-manager="/home/defauth/code/workflow/workspaces-scripts/github/talker-manager.sh"
-alias web-chat="/home/defauth/code/workflow/workspaces-scripts/github/webchat.sh"
-alias delivery="/home/defauth/code/workflow/workspaces-scripts/trybe/delivery.sh"
-alias ciencias="/home/defauth/code/workflow/workspaces-scripts/trybe/ciencia-computacao.sh"
-
-# fronend projects
-alias online-store="/home/defauth/code/workflow/workspaces-scripts/trybe/online-store.sh"
-alias proffy="/home/defauth/code/workflow/workspaces-scripts/github/proffy.sh"
-alias portfolio="$HOME/scripts/daniel-portifolio.sh"
-alias defauth98="/home/defauth/code/workflow/workspaces-scripts/my-projects/github-io.sh"
-
-#my projects
-alias barbarian-api="/home/defauth/code/workflow/workspaces-scripts/my-projects/barbarian-api.sh"
-alias workers-api="/home/defauth/code/workflow/workspaces-scripts/my-projects/workers-api.sh"
-alias node-postgres-api="/home/defauth/code/workflow/workspaces-scripts/my-projects/node-postgres-api.sh"
 
 # Programs alias
 alias ls_node_modules="find . -name "node_modules" -type d -prune | xargs du -chs"
@@ -62,13 +28,8 @@ alias amend-push="git add .; git commit --amend; push -f"
 alias short=" /home/defauth/code/workflow/scripts/shortcuts.sh"
 alias pr="gh pr view -w"
 alias proffydeploy="/home/defauth/code/workflow/scripts/proffy.sh"
-alias upp="/home/defauth/code/workflow/scripts/update.sh"
+alias upp="$HOME/code/scripts/update.sh"
 alias top="bashtop"
-
-#config files alias
-alias alaconf="code ~/.config/alacritty/alacritty.yml"
-alias vimconf="code .config/nvim/init.vim"
-alias zshconf="code .zshrc"
 
 # LS to Exa
 alias ls='exa -l --color=always --group-directories-first'
@@ -82,13 +43,12 @@ alias vim="nvim"
 # yarn alias
 alias aa="clear; npm start"
 alias tt="npm test"
-alias trybe="cd $HOME/code/trybe/projects"
 
-alias docker-stop="sudo systemctl stop docker;"
-alias docker-start="sudo systemctl start docker;"
-alias testdb-start="sudo docker start test-db;"
-alias mysql-start="sudo systemctl start mysql; "
-alias mongo-start="sudo systemctl start mongod;"
+alias dstop="sudo systemctl stop docker;"
+alias dstart="sudo systemctl start docker;"
+
+alias dc-start="docker compose up -d"
+alias dc-stop="docker compose down"
 
 # Github CLI alias
 alias repo='gh repo view --web'
