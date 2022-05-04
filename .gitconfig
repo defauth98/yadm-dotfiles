@@ -1,6 +1,5 @@
 [user]
 	name = Daniel Ribeiro
-	mail = neto.daniribeiro@gmail.com
 	email = neto.daniribeiro@gmail.com
 [core]
   editor = nvim
